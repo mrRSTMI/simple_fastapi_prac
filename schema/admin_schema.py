@@ -47,4 +47,3 @@ class NewAdminModel(AdminBaseModel):
 class PatchAdmin(AdminBaseModel):
     user_name_admin: Optional[str] = None
     password: Optional[str] = None
-    

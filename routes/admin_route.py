@@ -32,3 +32,9 @@ def update_admin_by_id(id: str, patch_admin: PatchAdmin):
     data[id].update(patch_admin.model_dump(exclude_unset=True))
 
     return data[id]
+
+
+@router.delete("/delete-admin/{id:str}")
+def delete_admin_by_id(id:str):
+    data.pop(id)
+    return {"message": f"deleted admin by id: {id}"}
