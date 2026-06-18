@@ -1,6 +1,6 @@
 from core.database import Base , engine
-from sqlalchemy import Integer, String, Column, Boolean
-
+from sqlalchemy import Integer, String, Column, Boolean, Date, DateTime
+from datetime import datetime
 
 class Admin(Base):
     __tablename__  = "admin"
@@ -12,6 +12,8 @@ class Admin(Base):
     password = Column(String(18), index=True)
     is_root_admin = Column(Boolean(True))
     changer_access = Column(Boolean(True))
+    created_at = Column(DateTime, default=datetime.now)
+    updated_at = Column(DateTime, default=datetime.now, onupdate=datetime.now)
 
 
 Base.metadata.create_all(bind=engine)
