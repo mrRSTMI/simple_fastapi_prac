@@ -24,6 +24,7 @@ class AdminBaseModel(BaseModel):
 
 class ResponseModel(BaseModel):
     model_config = ConfigDict(alias_generator=to_camel, populate_by_name=True)
+    id: int
     name_admin : str = Field(
         alias="nameAdmin",
         serialization_alias="nameAdmin",
